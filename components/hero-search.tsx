@@ -12,7 +12,7 @@ export function HeroSearch() {
 
   function goToSearch(term: string) {
     const q = term.trim();
-    router.push(q ? `/products?q=${encodeURIComponent(q)}` : "/products");
+    router.push(q ? `/products?search=${encodeURIComponent(q)}` : "/products");
   }
 
   return (
