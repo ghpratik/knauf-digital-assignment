@@ -13,18 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nordkern",
+  title: "Nordkern — Building materials catalog for the trade",
   description:
-    "Nordkern is a modern digital platform built around simplicity, precision, and a strong foundation. Inspired by the idea of a core that brings everything together, Nordkern focuses on creating reliable, structured, and intuitive solutions without unnecessary complexity.",
+    "Nordkern is the building materials catalog for drywall, insulation, plasters and finishing systems. Precise specs, honest availability, and search built for people who work with their hands.",
+};
+
+export const viewport = {
+  themeColor: "#0a0a0a",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full bg-background antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        {children}
+      </body>
     </html>
   );
 }
