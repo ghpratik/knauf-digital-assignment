@@ -12,7 +12,7 @@ const stats = [
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden border-b border-border">
-      <div className="mx-auto grid w-full max-w-[1400px] items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:py-24">
+      <div className="mx-auto grid w-full max-w-350 items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:py-24">
         <div className="flex flex-col items-start">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
             <span className="size-1.5 rounded-full bg-brand" />
@@ -23,8 +23,8 @@ export function Hero() {
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
             Nordkern is the catalog for drywall, insulation, plasters and
-            finishing systems. Precise specs, honest availability, and a
-            search built for people who work with their hands.
+            finishing systems. Precise specs, honest availability, and a search
+            built for people who work with their hands.
           </p>
 
           <div className="mt-8 w-full">
@@ -55,7 +55,7 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-muted sm:aspect-[5/4] lg:aspect-[4/5]">
+          <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl border border-border bg-muted sm:aspect-5/4 lg:aspect-s4/5">
             <Image
               src="/images/hero-materials.png"
               alt="Neatly stacked plasterboard, insulation rolls and plaster in a bright modern warehouse"
