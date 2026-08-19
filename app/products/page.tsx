@@ -15,7 +15,7 @@ export default function ProductsPage() {
     <>
       <SiteHeader />
       <main className="w-full">
-        <div className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6 lg:px-10">
+        <div className="mx-auto w-full max-w-350 px-4 py-10 sm:px-6 lg:px-10">
           <header className="mb-8">
             <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
               Products

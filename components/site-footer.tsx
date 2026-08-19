@@ -34,13 +34,13 @@ const columns = [
 export function SiteFooter() {
   return (
     <footer className="w-full bg-background">
-      <div className="mx-auto w-full max-w-[1400px] px-4 py-14 sm:px-6 lg:px-10">
+      <div className="mx-auto w-full max-w-350 px-4 py-14 sm:px-6 lg:px-10">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-w-xs">
             <Logo />
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              The building materials catalog engineered for the trade —
-              precise specs, honest stock, from the core out.
+              The building materials catalog engineered for the trade — precise
+              specs, honest stock, from the core out.
             </p>
           </div>
           {columns.map((column) => (

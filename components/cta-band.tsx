@@ -22,7 +22,7 @@ const features = [
 export function CtaBand() {
   return (
     <section className="w-full border-b border-border">
-      <div className="mx-auto w-full max-w-[1400px] px-4 py-16 sm:px-6 lg:px-10 lg:py-20">
+      <div className="mx-auto w-full max-w-350 px-4 py-16 sm:px-6 lg:px-10 lg:py-20">
         <div className="grid gap-8 sm:grid-cols-3">
           {features.map(({ Icon, title, body }) => (
             <div key={title} className="flex flex-col gap-3">
