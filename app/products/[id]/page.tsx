@@ -68,7 +68,7 @@ export default async function ProductDetailPage({
     <>
       <SiteHeader />
       <main className="w-full">
-        <div className="mx-auto w-full max-w-[1400px] px-4 py-8 sm:px-6 lg:px-10">
+        <div className="mx-auto w-full max-w-350 px-4 py-8 sm:px-6 lg:px-10">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
@@ -100,7 +100,7 @@ export default async function ProductDetailPage({
           </Link>
 
           {/* Overview */}
-          <section className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <section aria-labelledby="product-overview" className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-muted">
               <Image
                 src={product.image}
@@ -118,6 +118,9 @@ export default async function ProductDetailPage({
             </div>
 
             <div className="flex flex-col">
+              <h2 id="product-overview" className="sr-only">
+                Overview
+              </h2>
               <span className="text-sm font-medium uppercase tracking-wide text-brand">
                 {categoryLabel(product.category)}
               </span>
