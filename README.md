@@ -20,6 +20,7 @@ Open [http://localhost:3000](http://localhost:3000). The app runs against a loca
 ```bash
 pnpm build   # production build
 pnpm lint    # eslint
+pnpm test    # unit tests
 ```
 
 ---
@@ -100,7 +101,7 @@ Being upfront about these, per the assignment's ask for reasoning over polish:
 
 - **Document downloads use placeholder PDFs.** The document links are functional and point to local files in `public/docs`, but the PDFs are demonstration assets rather than official manufacturer documentation.
 - **"Request quote" sends a dummy confirmation email.** It demonstrates the request flow through the API and Resend, but it is not connected to a sales or CRM workflow. Configure `RESEND_API_KEY` to exercise it.
-- **No automated tests yet.** Flagged as a nice-to-have in the requirements doc; not implemented in this pass.
+- **Unit tests:** Vitest covers the product query layer, search/filter/sort/pagination behavior, comparison helpers, product and comparison API routes, and request-quote validation/email outcomes. Browser-level interaction tests are still out of scope.
 - **No dark/light theme toggle.** Deprioritized in favor of the above.
 
 ---
