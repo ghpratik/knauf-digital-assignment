@@ -3,6 +3,7 @@
 import { Scale, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCompare, type CompareItem } from "@/lib/compare-context";
+import { Button } from "../ui/button";
 
 // Overlay checkbox for a product card. Sits on top of the image; the card
 // itself is a <Link>, so clicks here must stop propagation or they'd also
@@ -54,19 +55,21 @@ export function CompareButtonToggle({ item }: { item: CompareItem }) {
   const disabled = !selected && atLimit;
 
   return (
-    <button
-      type="button"
+    <Button
+      size="xl"
+      variant={selected ? "secondary" : "outline"}
       aria-pressed={selected}
       disabled={disabled}
       onClick={() => toggle(item)}
       title={disabled ? "Comparison list is full (3 max)" : undefined}
-      className={cn(
-        "inline-flex shrink-0 items-center gap-2 rounded-lg border px-4 py-3 text-sm font-semibold transition-colors",
-        selected
-          ? "border-brand bg-brand/10 text-brand"
-          : "border-border bg-background text-foreground hover:bg-muted",
-        disabled && "cursor-not-allowed opacity-50 hover:bg-background",
-      )}
+      className={`${selected ? "bg-brand/10 text-brand hover:bg-brand/20" : ""} ${disabled && "cursor-not-allowed opacity-50 hover:bg-background"}`}
+      // className={cn(
+      //   "",
+      //   selected
+      //     ? "border-brand bg-brand/10 text-brand"
+      //     : "border-border bg-background text-foreground hover:bg-muted",
+      //   disabled && "cursor-not-allowed opacity-50 hover:bg-background",
+      // )}
     >
       {selected ? (
         <Check className="size-4" aria-hidden="true" />
@@ -74,6 +77,6 @@ export function CompareButtonToggle({ item }: { item: CompareItem }) {
         <Scale className="size-4" aria-hidden="true" />
       )}
       {selected ? "Added to compare" : "Add to compare"}
-    </button>
+    </Button>
   );
 }
