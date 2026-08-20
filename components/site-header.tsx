@@ -5,9 +5,9 @@ import { CompareIndicator } from "@/components/products/compare-indicator";
 
 const navLinks = [
   { label: "Products", href: "/products" },
-  { label: "Categories", href: "/products#categories" },
-  { label: "Solutions", href: "/systems" },
-  { label: "About", href: "/products" },
+  { label: "Categories", href: "/categories" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "About", href: "/about" },
 ];
 
 export function SiteHeader() {
