@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ProductCard as ProductCardType } from "@/lib/products";
+import { CompareCardToggle } from "@/components/products/compare-toggle";
 
 function formatPrice(price: number) {
   return new Intl.NumberFormat("en-IE", {
@@ -28,6 +29,14 @@ export function ProductCard({ product }: { product: ProductCardType }) {
             {product.tag}
           </span>
         ) : null}
+        <CompareCardToggle
+          item={{
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            categoryLabel: product.categoryLabel,
+          }}
+        />
       </div>
       <div className="flex flex-1 flex-col p-4">
         <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">

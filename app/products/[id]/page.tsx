@@ -14,6 +14,7 @@ import {
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ProductCard } from "@/components/products/product-card";
+import { CompareButtonToggle } from "@/components/products/compare-toggle";
 import {
   PRODUCTS,
   categoryLabel,
@@ -156,12 +157,22 @@ export default async function ProductDetailPage({
                     Excl. VAT · Trade pricing on request
                   </p>
                 </div>
-                <button
-                  type="button"
-                  className="shrink-0 rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
-                >
-                  Request quote
-                </button>
+                <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+                  <CompareButtonToggle
+                    item={{
+                      id: product.id,
+                      name: product.name,
+                      image: product.image,
+                      categoryLabel: categoryLabel(product.category),
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
+                  >
+                    Request quote
+                  </button>
+                </div>
               </div>
             </div>
           </section>

@@ -1127,6 +1127,21 @@ export function getProductById(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);
 }
 
+// Compare feature — capped at 3 so the comparison table stays readable on
+// a laptop screen without horizontal scrolling.
+export const MAX_COMPARE = 3;
+
+// Returns full products (not card projections) for the given ids, in the
+// order the ids were supplied, silently dropping unknown ids rather than
+// throwing — a stale localStorage id or an edited URL shouldn't break the
+// compare page.
+export function getProductsByIds(ids: string[]): Product[] {
+  const byId = new Map(PRODUCTS.map((p) => [p.id, p]));
+  return ids
+    .map((id) => byId.get(id))
+    .filter((p): p is Product => p !== undefined);
+}
+
 export function getRelatedProducts(id: string, count = 3): ProductCard[] {
   const product = getProductById(id);
   if (!product) return [];

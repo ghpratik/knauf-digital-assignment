@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { CompareIndicator } from "@/components/products/compare-indicator";
 
 const navLinks = [
   { label: "Products", href: "/products" },
@@ -26,6 +27,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <CompareIndicator />
           <Button
             size="lg"
             nativeButton={false}
