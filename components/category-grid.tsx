@@ -8,6 +8,7 @@ import {
   PaintRoller,
   ArrowUpRight,
 } from "lucide-react";
+import { PRODUCTS } from "@/lib/data";
 
 const categories = [
   {
@@ -15,36 +16,42 @@ const categories = [
     count: "320 products",
     href: "/products?category=plasterboard",
     Icon: Layers,
+    slug: "plasterboard",
   },
   {
     name: "Insulation",
     count: "210 products",
     href: "/products?category=insulation",
     Icon: ThermometerSnowflake,
+    slug: "insulation",
   },
   {
     name: "Drywall systems",
     count: "180 products",
     href: "/products?category=drywall-systems",
     Icon: Blocks,
+    slug: "drywall-systems",
   },
   {
     name: "Ceilings",
     count: "140 products",
     href: "/products?category=ceilings",
     Icon: PanelTop,
+    slug: "ceilings",
   },
   {
     name: "Fire protection",
     count: "95 products",
     href: "/products?category=fire-protection",
     Icon: Flame,
+    slug: "fire-protection",
   },
   {
     name: "Plasters & finishes",
     count: "260 products",
     href: "/products?category=plasters",
     Icon: PaintRoller,
+    slug: "plasters",
   },
 ];
 
@@ -73,7 +80,7 @@ export function CategoryGrid() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-          {categories.map(({ name, count, href, Icon }) => (
+          {categories.map(({ name, count, href, Icon, slug }) => (
             <Link
               key={name}
               href={href}
@@ -90,7 +97,7 @@ export function CategoryGrid() {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">{name}</h3>
-                <p className="mt-0.5 text-sm text-muted-foreground">{count}</p>
+                <p className="mt-0.5 text-sm text-muted-foreground">{PRODUCTS.filter((product) => product.category === slug).length} products</p>
               </div>
             </Link>
           ))}

@@ -9,8 +9,10 @@ import {
   Product,
   ProductCard,
   PRODUCTS,
-  SortOption,
+  type SortOption,
 } from "./data";
+
+export type { SortOption };
 
 // ---------------------------------------------------------------------------
 // Query layer
