@@ -65,7 +65,7 @@ export function CategoryGrid() {
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
           {categories.slice(0, 3).map(({ name, href, image, slug }) => (
             <Link
               key={name}

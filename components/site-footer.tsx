@@ -39,7 +39,7 @@ export function SiteFooter() {
           <div className="max-w-xs">
             <Logo />
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              The building materials catalog engineered for the trade — precise
+              The building materials catalog engineered for the trade, precise
               specs, honest stock, from the core out.
             </p>
           </div>
