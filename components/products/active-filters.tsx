@@ -1,7 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
-import { CATEGORIES } from "@/lib/products";
+import { CATEGORIES } from "@/lib/data";
 import type { FilterState } from "./filter-bar";
 
 type ActiveFiltersProps = {
@@ -11,7 +11,11 @@ type ActiveFiltersProps = {
   onClearAll: () => void;
 };
 
-type Chip = { key: string; label: string; clear: Partial<FilterState & { search: string }> };
+type Chip = {
+  key: string;
+  label: string;
+  clear: Partial<FilterState & { search: string }>;
+};
 
 export function ActiveFilters({
   filters,
@@ -45,10 +49,18 @@ export function ActiveFilters({
     });
   }
   if (filters.hasEPD) {
-    chips.push({ key: "epd", label: "EPD available", clear: { hasEPD: false } });
+    chips.push({
+      key: "epd",
+      label: "EPD available",
+      clear: { hasEPD: false },
+    });
   }
   if (filters.hasHPD) {
-    chips.push({ key: "hpd", label: "HPD available", clear: { hasHPD: false } });
+    chips.push({
+      key: "hpd",
+      label: "HPD available",
+      clear: { hasHPD: false },
+    });
   }
   if (filters.minPrice || filters.maxPrice) {
     chips.push({

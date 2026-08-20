@@ -7,9 +7,10 @@ import {
   APPLICATION_AREAS,
   CATEGORIES,
   FIRE_RATINGS,
-  PRICE_BOUNDS,
   SORT_OPTIONS,
-} from "@/lib/products";
+} from "@/lib/data";
+
+import { PRICE_BOUNDS } from "@/lib/products";
 
 export type FilterState = {
   category: string;
@@ -47,7 +48,9 @@ function OptionButton({
       }`}
     >
       <span>{label}</span>
-      {selected ? <Check className="size-4 text-brand" aria-hidden="true" /> : null}
+      {selected ? (
+        <Check className="size-4 text-brand" aria-hidden="true" />
+      ) : null}
     </button>
   );
 }

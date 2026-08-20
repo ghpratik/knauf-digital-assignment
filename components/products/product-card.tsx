@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ProductCard as ProductCardType } from "@/lib/products";
+import type { ProductCard as ProductCardType } from "@/lib/data";
 import { CompareCardToggle } from "@/components/products/compare-toggle";
 
 function formatPrice(price: number) {

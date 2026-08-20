@@ -7,7 +7,8 @@ import useSWR from "swr";
 import { Check, TriangleAlert, X } from "lucide-react";
 import { ProductCard } from "@/components/products/product-card";
 import { useCompare } from "@/lib/compare-context";
-import { categoryLabel, MAX_COMPARE, type Product } from "@/lib/products";
+import { MAX_COMPARE } from "@/lib/products";
+import { categoryLabel, type Product } from "@/lib/data";
 
 type CompareResult = { products: Product[] };
 
@@ -43,13 +44,22 @@ const CORE_ROWS: {
     label: "Application areas",
     render: (p) => p.applicationAreas.join(", "),
   },
-  { label: "EPD available", render: (p) => <BoolCell value={p.compliance.epd} /> },
-  { label: "HPD available", render: (p) => <BoolCell value={p.compliance.hpd} /> },
+  {
+    label: "EPD available",
+    render: (p) => <BoolCell value={p.compliance.epd} />,
+  },
+  {
+    label: "HPD available",
+    render: (p) => <BoolCell value={p.compliance.hpd} />,
+  },
   {
     label: "Fire certification",
     render: (p) => <BoolCell value={p.compliance.fireCertification} />,
   },
-  { label: "CE marked", render: (p) => <BoolCell value={p.compliance.ceMarked} /> },
+  {
+    label: "CE marked",
+    render: (p) => <BoolCell value={p.compliance.ceMarked} />,
+  },
 ];
 
 function BoolCell({ value }: { value: boolean }) {
@@ -102,8 +112,13 @@ export function CompareView() {
   if (error) {
     return (
       <div className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card py-16 text-center">
-        <TriangleAlert className="size-8 text-muted-foreground" aria-hidden="true" />
-        <p className="font-medium text-foreground">Couldn&apos;t load comparison</p>
+        <TriangleAlert
+          className="size-8 text-muted-foreground"
+          aria-hidden="true"
+        />
+        <p className="font-medium text-foreground">
+          Couldn&apos;t load comparison
+        </p>
         <p className="max-w-sm text-sm text-muted-foreground">
           Something went wrong loading these products. Try again.
         </p>
@@ -203,7 +218,10 @@ export function CompareView() {
         </thead>
         <tbody>
           {CORE_ROWS.map((row, i) => (
-            <tr key={row.label} className={i % 2 === 0 ? "bg-card" : "bg-muted/40"}>
+            <tr
+              key={row.label}
+              className={i % 2 === 0 ? "bg-card" : "bg-muted/40"}
+            >
               <th
                 scope="row"
                 className="px-3 py-3 text-left text-sm font-medium text-muted-foreground"
@@ -239,7 +257,11 @@ export function CompareView() {
                 const spec = p.specifications.find((s) => s.label === label);
                 return (
                   <td key={p.id} className="px-3 py-3 text-sm text-foreground">
-                    {spec ? spec.value : <span className="text-muted-foreground">—</span>}
+                    {spec ? (
+                      spec.value
+                    ) : (
+                      <span className="text-muted-foreground">—</span>
+                    )}
                   </td>
                 );
               })}
@@ -256,8 +278,8 @@ function EmptyState() {
     <div className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card py-16 text-center">
       <p className="font-medium text-foreground">Nothing to compare yet</p>
       <p className="max-w-sm text-sm text-muted-foreground">
-        Select two or three products from the catalog using the scale icon
-        on each product card, then come back here.
+        Select two or three products from the catalog using the scale icon on
+        each product card, then come back here.
       </p>
       <Link
         href="/products"
@@ -273,7 +295,10 @@ function CompareSkeleton({ count }: { count: number }) {
   return (
     <div className="flex gap-4 overflow-x-auto">
       {Array.from({ length: Math.max(count, 2) }).map((_, i) => (
-        <div key={i} className="h-96 w-48 shrink-0 animate-pulse rounded-xl bg-muted" />
+        <div
+          key={i}
+          className="h-96 w-48 shrink-0 animate-pulse rounded-xl bg-muted"
+        />
       ))}
     </div>
   );

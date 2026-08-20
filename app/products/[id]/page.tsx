@@ -16,12 +16,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { ProductCard } from "@/components/products/product-card";
 import { CompareButtonToggle } from "@/components/products/compare-toggle";
 import { RequestQuoteDialog } from "@/components/products/request-quote-dialog";
-import {
-  PRODUCTS,
-  categoryLabel,
-  getProductById,
-  getRelatedProducts,
-} from "@/lib/products";
+import { getProductById, getRelatedProducts } from "@/lib/products";
+
+import { PRODUCTS, categoryLabel } from "@/lib/data";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ id: p.id }));
@@ -52,7 +49,8 @@ function documentHref(name: string) {
   const files: Record<string, string> = {
     "Specification sheet": "/docs/specification-sheet.pdf",
     "Declaration of performance": "/docs/declaration-of-performance.pdf",
-    "Environmental product declaration": "/docs/environmental-product-declaration.pdf",
+    "Environmental product declaration":
+      "/docs/environmental-product-declaration.pdf",
     "Acoustic test report": "/docs/acoustic-test-report.pdf",
   };
   return files[name] ?? "/docs/specification-sheet.pdf";
@@ -72,7 +70,10 @@ export default async function ProductDetailPage({
   const compliance = [
     { label: "EPD available", value: product.compliance.epd },
     { label: "HPD available", value: product.compliance.hpd },
-    { label: "Fire certification", value: product.compliance.fireCertification },
+    {
+      label: "Fire certification",
+      value: product.compliance.fireCertification,
+    },
     { label: "CE marked", value: product.compliance.ceMarked },
   ];
 
@@ -112,7 +113,10 @@ export default async function ProductDetailPage({
           </Link>
 
           {/* Overview */}
-          <section aria-labelledby="product-overview" className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <section
+            aria-labelledby="product-overview"
+            className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12"
+          >
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-muted">
               <Image
                 src={product.image}
@@ -177,7 +181,10 @@ export default async function ProductDetailPage({
                       categoryLabel: categoryLabel(product.category),
                     }}
                   />
-                  <RequestQuoteDialog productId={product.id} productName={product.name} />
+                  <RequestQuoteDialog
+                    productId={product.id}
+                    productName={product.name}
+                  />
                 </div>
               </div>
             </div>
