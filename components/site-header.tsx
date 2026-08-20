@@ -6,7 +6,7 @@ import { CompareIndicator } from "@/components/products/compare-indicator";
 const navLinks = [
   { label: "Products", href: "/products" },
   { label: "Categories", href: "/products#categories" },
-  { label: "Solutions", href: "/products" },
+  { label: "Solutions", href: "/systems" },
   { label: "About", href: "/products" },
 ];
 

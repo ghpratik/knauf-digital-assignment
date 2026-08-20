@@ -40,7 +40,7 @@ export type ProductListResult = {
   };
 };
 
-function toCard(p: Product): ProductCard {
+export function toCard(p: Product): ProductCard {
   return {
     id: p.id,
     name: p.name,
