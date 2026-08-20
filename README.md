@@ -1,4 +1,4 @@
-# Nordkern — Building Materials Digital Experience
+# Nordkern - Building Materials Digital Experience
 
 A prototype web application for discovering building material products, built for the Working Student — Full Stack Developer take-home assignment.
 
