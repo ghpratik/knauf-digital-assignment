@@ -68,6 +68,8 @@ export function ProductsCatalog() {
   // Debounced search input synced to the URL.
   const [searchInput, setSearchInput] = useState(search);
   useEffect(() => {
+    // URL navigation can update the controlled search field.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSearchInput(search);
   }, [search]);
   useEffect(() => {

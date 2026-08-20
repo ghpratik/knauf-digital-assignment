@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ProductCard } from "@/components/products/product-card";
 import { CompareButtonToggle } from "@/components/products/compare-toggle";
+import { RequestQuoteDialog } from "@/components/products/request-quote-dialog";
 import {
   PRODUCTS,
   categoryLabel,
@@ -45,6 +46,16 @@ function formatPrice(price: number) {
     style: "currency",
     currency: "EUR",
   }).format(price);
+}
+
+function documentHref(name: string) {
+  const files: Record<string, string> = {
+    "Specification sheet": "/docs/specification-sheet.pdf",
+    "Declaration of performance": "/docs/declaration-of-performance.pdf",
+    "Environmental product declaration": "/docs/environmental-product-declaration.pdf",
+    "Acoustic test report": "/docs/acoustic-test-report.pdf",
+  };
+  return files[name] ?? "/docs/specification-sheet.pdf";
 }
 
 export default async function ProductDetailPage({
@@ -166,12 +177,7 @@ export default async function ProductDetailPage({
                       categoryLabel: categoryLabel(product.category),
                     }}
                   />
-                  <button
-                    type="button"
-                    className="rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
-                  >
-                    Request quote
-                  </button>
+                  <RequestQuoteDialog productId={product.id} productName={product.name} />
                 </div>
               </div>
             </div>
@@ -286,7 +292,8 @@ export default async function ProductDetailPage({
                   {product.documents.map((doc) => (
                     <li key={doc.name}>
                       <a
-                        href="#"
+                        href={documentHref(doc.name)}
+                        download
                         className="group flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-colors hover:border-foreground/30"
                       >
                         <span className="grid size-9 shrink-0 place-items-center rounded-md bg-muted text-foreground">
