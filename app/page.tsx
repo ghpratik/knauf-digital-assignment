@@ -5,6 +5,7 @@ import { SystemsTeaser } from "@/components/systems-teaser";
 import { FeaturedProducts } from "@/components/featured-products";
 import { CtaBand } from "@/components/cta-band";
 import { SiteFooter } from "@/components/site-footer";
+import { MarketingOverview } from "@/components/marketing-overview";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <CategoryGrid />
         <SystemsTeaser />
         <FeaturedProducts />
+        <MarketingOverview />
         <CtaBand />
       </main>
       <SiteFooter />
