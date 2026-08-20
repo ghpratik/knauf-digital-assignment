@@ -15,7 +15,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). No environment variables, database, or external API keys are required — the app runs entirely against a local mock data layer.
+Open [http://localhost:3000](http://localhost:3000). The app runs against a local mock data layer. Browsing, searching, filtering, and comparison do not require external services; request-quote email confirmation requires a `RESEND_API_KEY` in the environment.
 
 ```bash
 pnpm build   # production build
@@ -70,6 +70,19 @@ The requirements derived from that research are in [`docs/requiredments.md`](./d
 - Documents: spec sheet download entries
 - Related products, sourced from the product's category
 
+### Product comparison (`/products/compare`)
+
+- Select two or three products from the catalogue
+- Compare key product information and technical specifications side by side
+- Access comparison from product cards and product detail pages
+
+### Request quote
+
+- Submit an email address and optional project message from a product detail page
+- Validate the product and email before sending
+- Send a dummy confirmation email through Resend when `RESEND_API_KEY` is configured
+- Show sending, success, and error states in the dialog
+
 ### Non-functional requirements
 
 - **Loading:** skeleton grids on the listing page, not spinners or blank screens
@@ -85,10 +98,9 @@ The requirements derived from that research are in [`docs/requiredments.md`](./d
 
 Being upfront about these, per the assignment's ask for reasoning over polish:
 
-- **Document downloads don't download anything.** The "Documents" section on each product page lists spec sheets with file type and size, but there are no real PDFs behind them. This should be a disabled/"coming soon" state rather than a link — **as of this README, that fix is still pending** and is the top item on the follow-up list below, not a finished, intentional design choice.
-- **"Request quote" is a static CTA with no backend.** Consistent with treating this as a discovery tool, not a commerce flow (see [Out of scope](#out-of-scope-and-why)), but it's currently a dead button rather than a `mailto:` link or disabled state — also pending.
+- **Document downloads use placeholder PDFs.** The document links are functional and point to local files in `public/docs`, but the PDFs are demonstration assets rather than official manufacturer documentation.
+- **"Request quote" sends a dummy confirmation email.** It demonstrates the request flow through the API and Resend, but it is not connected to a sales or CRM workflow. Configure `RESEND_API_KEY` to exercise it.
 - **No automated tests yet.** Flagged as a nice-to-have in the requirements doc; not implemented in this pass.
-- **No product comparison.** This was identified in research as the single highest-value feature for the architect/specifier persona, and is the most likely next feature — see [What's next](#whats-next).
 - **No dark/light theme toggle.** Deprioritized in favor of the above.
 
 ---
@@ -119,8 +131,7 @@ The early requirements doc (`docs/requiredments.md`) sketched a generic seven-ca
 
 If continuing this prototype, in priority order:
 
-1. Fix the two dead-link states above (documents, request quote) — small effort, closes an explicit "don't fake a broken link" requirement
-2. **Product comparison** — select 2–3 products, view specs side by side. Identified in research as the highest-value feature for the architect/specifier persona and not yet built.
-3. A "systems" view grouping related products (e.g., a fire-rated partition = plasterboard + insulation + studs), reflecting how these products are actually specified together rather than individually
-4. Unit tests around filter/search logic
-5. Sort persistence refinements and dark/light theme toggle
+1. Connect request-quote submissions to a real sales or CRM workflow
+2. A "systems" view grouping related products (e.g., a fire-rated partition = plasterboard + insulation + studs), reflecting how these products are actually specified together rather than individually
+3. Unit tests around filter/search and comparison logic
+4. Sort persistence refinements and dark/light theme toggle
