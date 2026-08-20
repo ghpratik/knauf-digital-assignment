@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nordkern — Building materials catalog for the trade",
+  title: "Nordkern - Building materials catalog for the trade",
   description:
     "Nordkern is the building materials catalog for drywall, insulation, plasters and finishing systems. Precise specs, honest availability, and search built for people who work with their hands.",
 };
